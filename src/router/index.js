@@ -1,25 +1,74 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
+import Dashbord from "../views/Dashbord.vue"
+///admission
+import AddStudent from "../views/admission/AddStudent.vue"
+import AllStudent from "../views/admission/AllStudents.vue"
+
+import Graduates from "../views/admission/Graduates.vue"
+import Class from "../views/accademic/Class.vue"
+import Subjects from "../views/accademic/Subjects.vue"
+
+import StudentFees from "../views/finance/StudentFees.vue"
+import StudentPayments from "../views/finance/StudentPayments.vue"
+import PaymentReports from "../views/finance/PaymentReports.vue"
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'dashbord',
+    component: Dashbord
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/addstudent',
+    name: 'Addstudent',
+    component: AddStudent
+  },
+  {
+    path: '/allstudents',
+    name: 'Allstudent',
+    component: AllStudent
+  },
+  {
+    path: '/graduates',
+    name: 'Graduates',
+    component: Graduates
+  },
+  {
+    path: '/classroom',
+    name: 'Class',
+    component: Class
+  },
+  {
+    path: '/subjects',
+    name: 'Subjects',
+    component: Subjects
+  },
+  {
+    path: '/student-fees',
+    name: 'StudentFees',
+    component: StudentFees
+  },
+  {
+    path: '/student-payments',
+    name: 'StudentPayments',
+    component: StudentPayments
+  },
+  {
+    path: '/payment-reports',
+    name: 'PaymentReports',
+    component: PaymentReports
+  },
+  
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+  history: createWebHistory(),
+  routes,
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 }
+  },
 })
 
 export default router
